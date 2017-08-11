@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>酒仙网</title>
+	<!-- <link rel="stylesheet" href="public/css/index.css">
+	<script src='public/js/index.js'></script> -->
+	<style>
+		*{
+			font-family: 微软雅黑;
+		}
+		/*白酒馆幻灯片*/
+		.whiteWine .sliderBox{
+			width: 210px;
+			height: 485px;
+			overflow: hidden;
+			position: relative;
+		}
+        /*父相对 子绝对*/
+		.whiteWine .sliderBox .imgBox{
+			position: absolute;
+			/*left: 0px;*/
+			/*top: 0px;*/
+		}
+		.whiteWine .sliderBox .imgBox img{
+			float: left;
+		}
+		.whiteWine .sliderBox .btnBox{
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+		}
+		.whiteWine .sliderBox .btnBox a{
+			text-decoration: none;
+			color: #fff;
+			padding:0px 6px;
+			background: #000;
+			border-radius: 50%;
+			margin-right: 2px;
+			opacity: 0.9;
+		}
+		.whiteWine .sliderBox .btnBox a.active{
+			background: #920000;
+			font-weight: bold;
+			border: 1px solid #920000;
+			opacity: 1;
+	    }
+	</style>
+	<script src='../public/js/jquery.min.js'></script>
+</head>
+<body>
+	<!-- 白酒馆  注意三点变化 1.最后重复第一个图 2.一共三个a链接 3.a链接中的rel -->
+	<div class="whiteWine">
+        <!-- 定宽 相对定位 -->
+		<div class="sliderBox">
+			<!-- imgBox是一个足够宽的角色 且是绝对定位 -->
+			<div class="imgBox">
+					<a href=""><img src="public/img/f6a1dfbd92ea47b2a5a3cceb3902df33.jpg" alt=""></a>
+					<a href=""><img src="public/img/a6531bcfcd9041d1af370d98b04b8180.jpg" alt=""></a>
+					<a href=""><img src="public/img/f6a1dfbd92ea47b2a5a3cceb3902df33.jpg" alt=""></a>
+			</div>
+			<div class="btnBox">
+				<a href="#" rel='1'>1</a>
+				<a href="#" rel='2'>2</a>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script>
+    // 白酒馆幻灯片 需要改 whiteWine Change(playChange activeChange);
+    // sliderCircle=function(){
+
+    // };
+
+    // sliderCircle();
+
+    (function(){
+    	$('.whiteWine .sliderBox .btnBox a:first').addClass('active');
+
+    	// 让imgList足够宽
+    	var imgWidth=$('.whiteWine .sliderBox .imgBox').width();
+    	var imgSum=$('.whiteWine .sliderBox img').size();
+    	var imgListWidth=imgWidth*imgSum;   																							
+    	$('.whiteWine .sliderBox .imgBox').css({'width':imgListWidth});
+
+    	//幻灯片开始   不是当什么什么时 是默认在鼠标啥事也不干的时候就发生的
+    	var rotateSwitch=function(){
+
+    		playChange=setInterval(function(){
+
+    			$activeChange=$('.whiteWine .sliderBox .btnBox a.active').next();
+    			var rel=$('.whiteWine .sliderBox .btnBox a.active').attr('rel');
+
+    			if(rel==2){
+    				$activeChange=$('.whiteWine .sliderBox .btnBox a:first');
+    				var end=true;
+    			}else{
+    				var end=false;
+    			}
+
+    			rotate(end);
+    		},2000);
+    	};
+
+    	rotateSwitch(); 
+
+    	var rotate=function(end){
+    		if(end){
+    			var triggerID=imgSum-1;                                     // var triggerID=$activeChange.index();
+    			var imgPosition=triggerID*imgWidth;
+
+    			$('.whiteWine .sliderBox .btnBox a').removeClass('active');
+    			$activeChange.addClass('active');
+
+    			$('.whiteWine .sliderBox .imgBox').animate({
+    				left:-imgPosition,
+    			},500,function(){
+    				$(this).css({'left':'0px'});                            //神不知鬼不觉的从头开始
+    			});
+    		}else{
+    			var triggerID=$activeChange.attr('rel')-1;
+    			var imgPosition=triggerID*imgWidth;
+
+    			$('.whiteWine .sliderBox .btnBox a').removeClass('active');
+    			$activeChange.addClass('active');
+
+
+    			$('.whiteWine .sliderBox .imgBox').animate({
+    				left:-imgPosition, 
+    			},500);  
+
+    		}
+    		
+    	}; 		
+    	
+    	
+    	//当鼠标划上的时候 停止 移开 继续
+    	$('.whiteWine .sliderBox .imgList a').hover(function(){
+    		clearInterval(playChange);
+    	},function(){
+    		rotateSwitch();
+    	});
+
+    	//当点击1 2 3 时 让当前点击的这个为$activeChange 然后停止动画 执行幻灯片关键
+    	$('.whiteWine .sliderBox .btnBox a').click(function(){
+    		$activeChange=$(this);
+    		clearInterval(playChange);
+    		rotate(false);
+    		rotateSwitch();
+    		return false;
+    	});
+    })();
+    	
+    
+
+	
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

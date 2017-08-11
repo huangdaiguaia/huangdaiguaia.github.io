@@ -1,0 +1,708 @@
+*{
+	font-family: 微软雅黑;
+	margin:0px;
+	padding: 0px;
+	font-size:14px;
+}
+
+h1{
+
+}
+
+a{
+	text-decoration: none;
+	color:#888;
+}
+
+body{
+	/*background: #F9F9F9;*/
+	overflow-x: hidden;
+	color: #666;
+}
+
+.toper{
+	height: 26px;
+	background: #F2F2F2;
+}
+
+.main{
+	width:1200px;
+	margin:0 auto;
+	line-height: 26px;
+	color:#888;
+}
+
+.main-left{
+	float: left;
+}
+
+.main-right{
+	float: right;
+}
+
+.main-right .ceo{
+	color: #c00;
+}
+
+.main-right .shouji{
+	background: #c00;
+	color: #fff;
+	padding: 0 5px;
+	border-radius: 2px;
+}
+
+.main-right .cart{
+	/*width: 15px;*/
+	/*height: 15px;*/
+	background: url('../img/public-24.png') no-repeat -18px 4px;
+	padding-left: 15px;
+}
+
+.main-right .shouji .pre{
+	/*width: 15px;*/
+	/*height: 15px;*/
+	padding-left: 15px;
+	background: url('../img/public-24.png') no-repeat -62px 2px;
+}
+
+.main-right .web{
+	/*width: 15px;*/
+	/*height: 15px;*/
+	padding-left: 15px;
+	background: url('../img/public-24.png') no-repeat -80px 4px;
+}
+
+.main-right .kefu{
+	/*width: 15px;*/
+	/*height: 15px;*/
+	padding-left: 15px;
+	background: url('../img/public-24.png') no-repeat -90px -261px;
+}
+
+.main-left span,.main-left q{
+	margin-right:10px;
+}
+
+.main-right span,.main-right q{
+	margin-left:5px;
+}
+
+.banner{
+	width: 100%;
+	height: 
+	overflow: hidden;
+}
+
+.banner img{
+	/*display: block;*/
+	margin-left:-270px;
+}
+
+.main-right .jiuxian{
+	cursor: pointer;
+	float: left;
+	width: 80px;
+}
+
+.main-right .jiuxiantop span{
+	float: left;
+}
+
+.main-right .myjiu{
+	width: 10px;
+	height: 15px;
+	background: url('../img/public-24.png') no-repeat -99px 9px;
+	float: left;
+	margin-left: 3px;
+	margin-top:2px;
+}
+
+.main-right .mydropdown{
+	position: absolute;
+	width: 80px;
+	background: #fff;
+	display: none;
+}
+
+.main-right .mydropdown ul{
+	list-style: none;
+}
+
+.clear{
+	clear: both;
+}
+
+.header{
+	height: 125px;
+	/*background: #ccc;*/
+}
+
+.logo{
+	float: left;
+	height: 65px;
+	margin-top: 30px;
+}
+
+.adv{
+	float: left;
+	margin-top: 32px;
+	margin-left: 15px;
+}
+
+.search{
+	margin-top: 30px;
+	float: left;
+	margin-left: 25px;
+	width: 540px;
+	height: 65px;
+}
+
+.youhui{
+	margin-top: 30px;
+	float: right;
+}
+
+.search-top{
+	height: 32px;
+	border:3px solid #c00;
+
+}
+
+.search-form{
+	width: 439px;
+	height: 22px;
+	line-height: 22px;
+	padding: 5px;
+	border:0 none;
+	color: #666;
+}
+
+.search-form:focus{
+	outline: none;
+}
+
+.search-btn{
+	width: 85px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	border:0;
+	font-size: 16px;
+	color: #fff;
+	background: #c00;
+	cursor: pointer;
+	float: right;
+}
+
+.search-bottom{
+	width: 540px;
+	height: 18px;
+	padding-top: 5px;
+	/*overflow: hidden;*/
+}
+
+.search-bottom ul{
+	list-style: none;
+}
+
+.search-bottom li{
+	float: left;
+	margin-right: 5px;
+	line-height: 18px;
+}
+
+.search-bottom .first{
+	color: #c66;
+}
+
+.ppt{
+	height: 34px;
+	background: #900;
+}
+
+/*左侧导航*/
+
+.ppt .div1{
+	height: 34px;
+	overflow: hidden;
+	background: #900;
+	color: #fff;
+}	
+
+.ppt .div1 ul{
+	width: 1200px;
+	margin: 0 auto;
+	list-style: none;
+}
+
+.ppt .div1 ul li {
+	float: left;
+	line-height: 34px;
+	margin-left: 30px;
+	cursor: pointer;
+}
+
+.ppt .banner{
+	background: #ce171f;
+	width: 150px;
+	text-align: center;
+	margin-left: 0px!important;
+}
+
+.ppt .div2{
+	width: 1200px;
+	height: 470px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.ppt .div3{
+	width: 150px;
+	height: 470px;
+	background: #fff;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.ppt .div3 ul{
+	list-style: none;
+}
+.ppt .div3 ul li{
+	padding-left: 15px;
+	line-height: 30px;
+	border-bottom: 1px solid #ccc;
+}
+.ppt .div3 ul li:last-child{
+	padding-left: 15px;
+	line-height: 30px;
+	border-bottom: none;
+}
+
+
+.ppt .div3 ul li span{
+	/*color: #fff;*/
+}
+
+.ppt .div3 ul li:hover{
+	/*background: #eee;*/
+	cursor: pointer;
+	/*color: #b61d1d;*/
+}
+.ppt .right{
+	width: 620px;
+	height: 470px;
+	background: #eee;
+	position: absolute;
+	top:0px;
+	left:150px;
+	/*padding: 15px;*/
+	color: #000;
+	display: none;
+	z-index: 1;
+}
+
+/*.ppt .right:first-child{
+	display: block;
+}*/
+
+/*ppt幻灯片*/
+.navppt .carousel{
+	height: 470px;
+	width: 1050px;
+	float: right;
+	background: #aff;
+	overflow: hidden;
+	position: relative;
+}
+
+
+/*.navppt .carousel{*/
+	/*height: 300px;*/
+	
+/*}*/
+.navppt .carousel .image_reel{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.navppt .carousel .image_reel img{
+	float: left;
+}
+.navppt .carousel .paging{
+	position: absolute;
+	bottom: 20px;
+	right: 50%;
+	margin-right: 60px;
+	display: none;
+}
+.navppt .carousel .paging a{
+	text-decoration: none;
+	color: #fff;
+	padding:0px 5px;
+}
+
+.navppt .carousel .paging a:hover{
+		background: #920000;
+		font-weight: bold;
+	}
+.navppt .carousel .paging a.active{
+	background: #920000;
+	font-weight: bold;;
+}
+
+.navppt .carousel .paging a{
+	border-radius: 50%;
+}
+
+.right-ads{
+	position: absolute;
+	top:0px;
+	right: 0px;
+	width: 190px;
+	height: 470px;
+	overflow: hidden;
+}
+
+
+
+.right-ads .img{
+	margin-bottom: 1px;
+}
+
+.right-ads img{
+	display: block;
+}
+
+.nav1{
+	display: inline-block;
+	width:14px;
+	height: 20px;
+	/*background: #f00;*/
+	margin-right: 10px;
+	vertical-align: middle;
+	background: url('../img/public-24.png') no-repeat -73px -260px;
+}
+
+.nav2{
+	display: inline-block;
+	width:14px;
+	height: 20px;
+	/*background: #f00;*/
+	margin-right: 10px;
+	vertical-align: middle;
+	background: url('../img/public-24.png') no-repeat 2px -100px;
+}
+
+.nav3{
+	display: inline-block;
+	width:14px;
+	height: 20px;
+	/*background: #f00;*/
+	margin-right: 10px;
+	vertical-align: middle;
+	background: url('../img/public-24.png') no-repeat -16px -102px;
+}
+
+.nav4{
+	display: inline-block;
+	width:14px;
+	height: 20px;
+	/*background: #f00;*/
+	margin-right: 10px;
+	vertical-align: middle;
+	background: url('../img/public-24.png') no-repeat -37px -100px;
+}
+
+.menu .div3 li.left-menu:hover{
+	border-left: 2px solid #ce171f;
+}
+
+.ppt .div3 .r-left{
+	width: 400px;
+	height: 470px;
+	background: #fff;
+	/*padding: 5px 10px;*/
+	float: left;
+	position: relative;
+}
+
+.ppt .div3 .r-right{
+	width: 220px;
+	height: 470px;
+	float:right;
+}
+
+.ppt .div3 .r-right img{
+	display: block;
+}
+
+.ppt .lstitle{
+	float: left;
+	width: 60px;
+    text-align: right;
+    padding-left: 10px;
+    /*background: #ccc;*/
+    /*padding: 10px 10px 10px 20px;*/
+}
+
+.ppt .lslist{
+	float: left;
+	width: 280px;
+	margin-left: 40px;
+	border-bottom: 1px dotted #ccc;
+	/*background: #ccc;*/
+	/*word-spacing: break-all;*/
+
+}
+
+.ppt .lslist p a{
+	/*display: inline-block;*/
+	white-space: nowrap;
+}
+
+.ppt .menuBottom{
+	width: 100px;
+	height: 470px;
+	background: #eee;
+	float: left;
+	position: absolute;
+}
+
+.menuRight{
+	position: absolute;
+	z-index: 1;
+}
+
+
+
+/*content*/
+.content{
+	margin-top: 10px;
+}
+
+
+.indexTabBox{
+	width: 920px;
+	height: 500px;
+	float: left;
+}
+.indexTabBoxTop{
+	height: 38px;
+	background: #faa;
+}
+.indexTabBoxTop ul{
+	list-style:none;
+}
+.indexTabBoxTop ul li {
+	float: left;
+	width: 183px;
+	line-height: 38px;
+	font-size: 16px;
+	text-align: center;
+	background: #f9f9f9;
+	border: 1px solid #ececec;
+	border-top-width: 2px;
+}
+
+.indexTabBoxTop ul li.active{
+	background:#fff;
+	cursor: pointer;
+	color: #c00;
+	border-top-color: #c00;
+}
+
+.indexTabBoxTop ul li.n5{
+	width: 178px;
+}
+
+.indexTabBoxBottom{
+	height: 460px;
+	background: #fff;
+	/*overflow: hidden;*/
+}
+
+.indexTabBoxBottom .indexTabCon{
+	width: 910px;
+	height: 442px;
+	margin:0px 4px;
+	padding: 10px 0px;
+	display: none;
+}
+
+.indexTabBoxBottom .indexTabCon ul{
+	list-style: none;
+}
+
+.indexTabBoxBottom .indexTabCon ul li{
+	float: left;
+	width: 182px;
+	margin-top: 15px; 
+}
+
+.indexTabBoxBottom .indexTabCon .indexTabPic{
+	width: 160px;
+	padding:0 11px;
+	position: relative;
+}
+
+.indexTabPic .Tag{
+	width: 45px;
+	height: 55px;
+	color: #fff;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	text-align: center;
+	background: url('../img/TagBg.png') no-repeat;
+}
+.indexTabPic .Tag span{
+	text-align: center;
+	margin-top: 7px;
+	display: inline-block;
+	line-height: 14px;
+}
+
+.indexTabCon .indexTabTit{
+	line-height: 18px;
+	/*长段话变点点点*/
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+.indexTabCon .indexTabTit a{
+	color: #666;
+	font-size: 13px;
+}
+
+.indexTabPrice{
+	line-height: 18px;
+}
+
+.indexTabPrice strong{
+	font-size: 15px;
+	color: #cd0111;
+	font-weight: normal;
+}
+
+.indexTabRight{
+	height: 500px;
+	/*width: 270px;*/
+	float: right;
+}
+.indexTabNew{
+	height: 140px;
+	/*background: #faa;*/
+}
+
+
+/*右侧小导航*/
+.indexTabNewNav ul{
+	list-style:none;
+}
+.indexTabNewNav ul li {
+	float: left;
+	width: 134px;
+	line-height: 38px;
+	font-size: 16px;
+	text-align: center;
+	background: #f9f9f9;
+	border: 1px solid #ececec;
+	border-top-width: 2px;
+}
+
+.indexTabNewNav ul li.active{
+	background:#fff;
+	cursor: pointer;
+	color: #c00;
+	border-top-color: #c00;
+}
+
+.indexTabNewNav ul li.s2{
+	width: 132px;
+}
+
+.indexTabNew{
+	height: 140px;
+	background: #fff;
+}
+
+.indexTabNewCon{
+	padding-top:10px; 
+}
+
+.indexTabNewCon .indexTabNewList{
+	width: 258px;
+	display: none;
+}
+
+.indexTabNewCon .indexTabNewList ul{
+	list-style: none;
+}
+
+.indexTabNewCon .indexTabNewList ul li{
+	float: left;
+	width: 114px;
+	margin-left: 10px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap; 
+	line-height: 28px;
+}
+
+.indexTabNewList li a{
+	color: #666;
+	font-size: 13px;
+}
+
+/*团购小幻灯片*/
+.indexTuanBox{
+	width: 268px;
+	/*margin-top: 10px;*/
+	height: 157px;
+	overflow: hidden;
+	position: relative;
+}
+.indexTuanList{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.indexTuanList img{
+	float: left;
+}
+.btnBox{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	display: none;
+}
+.btnBox a{
+	text-decoration: none;
+	color: #fff;
+	padding:0px 5px;
+}
+.btnBox a.active{
+	background: #920000;
+	font-weight: bold;
+}
+
+
+
+.indexAdFocus{
+	margin-top: 10px;
+	height: 178px;
+	background: #faa;
+}
+
+
+
+
+
+
+
+
+
+
+

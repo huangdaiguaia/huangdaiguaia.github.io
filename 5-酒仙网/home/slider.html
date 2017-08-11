@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>酒仙网</title>
+	<!-- <link rel="stylesheet" href="public/css/index.css">
+	<script src='public/js/index.js'></script> -->
+	<style>
+		*{
+			font-family: 微软雅黑;
+		}
+		/*白酒馆幻灯片*/
+		.whiteWine .sliderBox{
+			width: 210px;
+			height: 485px;
+			overflow: hidden;
+			position: relative;
+		}
+		/*父相对 子绝对*/
+		.whiteWine .sliderBox .imgBox{
+			position: absolute;
+			/*left: 0px;
+			top: 0px;*/
+		}
+		.whiteWine .sliderBox .imgBox img{
+			float: left;
+		}
+		.whiteWine .sliderBox .btnBox{
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+		}
+		.whiteWine .sliderBox .btnBox a{
+			text-decoration: none;
+			color: #fff;
+			padding:0px 6px;
+			background: #000;
+			border-radius: 50%;
+			margin-right: 2px;
+			opacity: 0.9;
+		}
+		.whiteWine .sliderBox .btnBox a.active{
+			background: #920000;
+			font-weight: bold;
+			border: 1px solid #920000;
+			opacity: 1;
+	    }
+	</style>
+	<script src='../public/js/jquery.min.js'></script>
+</head>
+<body>
+	<!-- 白酒馆 -->
+	<div class="whiteWine">
+		<!-- 定宽 相对定位 -->
+		<div class="sliderBox">
+			<!-- imgBox是一个足够宽的角色 且是绝对定位 -->
+			<div class="imgBox">
+				<a href=""><img src="public/img/0e2e196e2f9a486eaf52f18985e9d83b.jpg" alt=""></a>
+				<a href=""><img src="public/img/a6531bcfcd9041d1af370d98b04b8180.jpg" alt=""></a>
+				<a href=""><img src="public/img/f6a1dfbd92ea47b2a5a3cceb3902df33.jpg" alt=""></a>
+			</div>
+			<div class="btnBox">
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script>
+    // 白酒馆幻灯片 需要改 whiteWine Change(playChange activeChange);
+    //想直接调用 要会传参数
+    // slider=function(){
+
+    // };
+
+    // slider();
+
+
+    (function(){
+		$('.whiteWine .sliderBox .btnBox a:first').addClass('active');
+
+		// 让imgList足够宽
+		var imgWidth=$('.whiteWine .sliderBox').width();                 //每个图片的宽度
+		var imgSum=$('.whiteWine .sliderBox img').size();                        //有几个图片
+		var imgListWidth=imgWidth*imgSum;
+		$('.whiteWine .sliderBox .imgBox').css({'width':imgListWidth});
+
+		//幻灯片开始   不是当什么什么时 是默认在鼠标啥事也不干的时候就发生的
+		var rotateSwitch=function(){
+
+			playChange=setInterval(function(){
+
+				$activeChange=$('.whiteWine .sliderBox .btnBox a.active').next();     //每隔2秒 $activeChange这个对象代表的实体发生了变化
+
+				if($activeChange.length==0){                                          //当$active是第三个的下一个,第三个的下一个没有 即长度为0
+					$activeChange=$('.whiteWine .sliderBox .btnBox a:first');         //此时 直接让第一个激活 此类幻灯片的特点 拽回到第一个
+				}
+
+				//幻灯片的关键 向左移图片
+
+				rotate();                                                       //继续执行幻灯片的关键 向左移图片
+
+			},2000);                                                                //两个图片之间的时间间隔
+		};
+
+		rotateSwitch();
+
+		var rotate=function(){
+			var triggerID=$activeChange.index();
+			var imgPosition=triggerID*imgWidth;                                   //trigger 触发
+
+			$('.whiteWine .sliderBox .btnBox a').removeClass('active');
+			$activeChange.addClass('active');
+
+			$('.whiteWine .sliderBox .imgBox').animate({
+				left:-imgPosition,                           //left可以加引号,后面或者什么都不加,或者可以加上+'px';最后可以加逗号,一定不能用分号
+			},500);                                                                //一个图片移动(移走这个-imgPosition)的速度
+		};
+
+		//当鼠标划上的时候 停止 移开 继续
+		$('.whiteWine .sliderBox .imgBox a').hover(function(){
+			clearInterval(playChange);
+		},function(){
+			rotateSwitch();
+		});
+
+		//当点击1 2 3 时 让当前点击的这个为$activeChange 然后停止动画 执行幻灯片关键
+		$('.whiteWine .sliderBox .btnBox a').click(function(){
+			$activeChange=$(this);
+			clearInterval(playChange);
+			rotate();
+			rotateSwitch();
+			return false;                                  //防止a链接跳转 阻止默认行为
+		});
+	})();
+
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

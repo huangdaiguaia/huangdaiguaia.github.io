@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text</title>
+	<style>
+	*{
+		font-family: 微软雅黑;
+	}
+	.indexTuanBox{
+		width: 268px;
+		/*margin-top: 10px;*/
+		height: 157px;
+		overflow: hidden;
+		position: relative;
+	}
+	.indexTuanList{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+	.indexTuanList img{
+		float: left;
+	}
+	.btnBox{
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+		display: none;
+	}
+	.btnBox a{
+		text-decoration: none;
+		color: #fff;
+		padding:0px 5px;
+	}
+	.btnBox a.active{
+		background: #920000;
+		font-weight: bold;
+	}
+	</style>
+	<script src='../public/js/jquery.min.js'></script>
+</head>
+<body>
+	<div class="indexTuanBox">
+		<div class="window">
+			<div class="indexTuanList">
+				<!-- 268*157 -->
+				<a href=""><img src="public/img/9fbf297851d245a4b0a42af7e948ab21.jpg" alt=""></a>
+				<a href=""><img src="public/img/b58042c723754c8b9885dc407fd14784.jpg" alt=""></a>
+				<a href=""><img src="public/img/6a935b1e7e1840d2801083301af63de2.jpg" alt=""></a>
+				<a href=""><img src="public/img/9fbf297851d245a4b0a42af7e948ab21.jpg" alt=""></a>
+			</div>
+		</div>
+		
+		<div class="btnBox">
+			<a href="#" rel='1'>1</a>
+			<a href="#" rel='2'>2</a>
+			<a href="#" rel='3'>3</a>
+		</div>
+	</div>
+</body>
+<script>
+	$('.btnBox').show();
+	$('.btnBox a:first').addClass('active');
+
+	// 让image_reel足够宽
+	var imgTuanWidth=$('.window').width();
+	var imgTuanSum=$('.indexTuanList img').size();
+	var indexTuanListWidth=imgTuanWidth*imgTuanSum;
+
+	$('.indexTuanList').css({'width':indexTuanListWidth});
+
+	//幻灯片的关键 向左移图片
+	rotate=function(){
+		idx=$('.btnBox a.active').index();
+		var triggerID=idx+1;
+		var image_reelPosition=triggerID*imgTuanWidth;
+
+		$('.btnBox a').removeClass('active');
+		$active.addClass('active');
+
+		$('.indexTuanList').animate({
+			left:-image_reelPosition
+		},1000);
+	};
+
+	//此类幻灯片的特点 拽回到第一个
+	// rotateSwitch=function(){
+		play=setInterval(function(){
+			$active=$('.btnBox a.active').next();        //当$active是第三个的下一个
+
+			if($active.length==0){                      //第三个的下一个没有 即长度为0
+				$active=$('.btnBox a:first');            //此时 直接让第一个激活
+			}
+			rotate();                                    //继续执行幻灯片的关键 向左移图片
+		},2000);
+	// };
+
+	// rotateSwitch();
+
+	//当鼠标划上的时候 停止 移开 继续
+	// $('.indexTuanList a').hover(function(){
+	// 	clearInterval(play);
+	// },function(){
+	// 	rotateSwitch();
+	// });
+
+	//当点击1 2 3 时 让当前点击的这个为$active 然后停止动画 执行幻灯片关键
+	// $('.btnBox a').click(function(){
+	// 	$active=$(this);
+	// 	clearInterval(play);
+	// 	rotate();
+	// 	rotateSwitch();
+	// 	return false;                                  //防止a链接跳转 阻止默认行为
+	// });	
+</script>
+</html>
+
+
+
+.indexRaceBox .raceListWrap{
+	border:1px solid #ececec;
+	position: relative;
+	overflow: hidden;
+	height: 259px;
+	width: 1200px;
+	/*margin-top: 2px;*/
+}
+
+/*.raceListWrap .newIndexIcon{
+	background: url('../img/newIndexIcon-24.png') no-repeat;
+}*/
+
+.raceListWrap .raceArrow{
+	width: 27px;
+	height: 56px;
+	position: absolute;
+	top: 100px;
+	z-index: 100;
+	cursor: pointer;
+}
+.raceListWrap .raceLeft{
+	background: url('../img/newIndexIcon-24.png') no-repeat 0 -28px;
+}
+.raceListWrap .raceRight{
+	right: 0px;
+	background: url('../img/newIndexIcon-24.png') no-repeat -28px -28px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*优惠推荐下的幻灯片*/
+.raceListWrap .receBoxs{
+	width: 3600px;
+	position: relative;
+	height: 257px;
+}
+.raceListWrap .raceList{
+	width: 1188px;
+	padding: 0 5px;
+	float: left;
+	overflow: hidden;
+	height: 257px;
+}
+.raceListWrap .raceList li{
+	float: left;
+	width: 198px;
+	padding: 20px 0 10px 0;
+	display: inline;
+	position: relative;
+	z-index: 1;
+}
+.raceListWrap .raceListTit{
+	/*width: 190px;*/
+	/*height: 18px;*/
+	padding: 0 4px;
+	line-height: 18px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.raceListWrap .raceListPrice{
+	/*width: 190px;*/
+	/*height: 18px;*/
+	padding: 0 4px;
+	line-height: 18px;
+	/*overflow: hidden;*/
+}
+.raceListWrap .raceListPrice strong{
+	font-size: 15px;
+	color: #cd0100;
+	font-weight: normal;
+}
+.raceListWrap .raceListTime{
+	width: 194px;
+	height: 26px;
+	font-size: 0;
+	overflow: hidden;
+	line-height: 5px auto 0 auto;
+	padding-left: 4px;
+}
+.raceListWrap .raceListTime span{
+	color: #999;
+	font-size: 12px;
+}
+
+
+
+.raceList .Tag{
+	width: 45px;
+	height: 55px;
+	color: #fff;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	text-align: center;
+	background: url('../img/TagBg.png') no-repeat;
+}
+.raceList .Tag span{
+	text-align: center;
+	margin-top: 7px;
+	display: inline-block;
+	line-height: 14px;
+}
+
+
+
+
+<div class="raceListWrap">
+	<i class="raceArrow raceLeft"></i>
+	<i class="raceArrow raceRight"></i>
+	<!-- 3600 -->
+	<div class="receBoxs">
+		<!-- 1200 -->
+		<div class="raceList">
+			<ul>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/a49396f69f624bf1a6dd5f97469da9262.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+
+
+			</ul>
+		</div>
+
+		<div class="raceList">
+			<ul>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/0b0dcc62c73a4ade875b41f5283e231b2.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+
+
+			</ul>
+		</div>
+
+		<div class="raceList">
+			<ul>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+				<li>
+
+					<div class="raceListPic">
+						<a href=""><img src="public/img/2c10575dfe8b4adebca6c667dcc567202.jpg" alt=""></a>
+						<p class='Tag'>
+							<span>
+								立减
+								20元
+							</span>
+						</p>
+					</div>
+					<div class="raceListTit">
+						<a href="http://www.baidu.com">52°泸州老窖永盛烧坊老窖专酿荷塘月色500ml</a>
+					</div>
+					<div class="raceListPrice">
+						<strong>￥49.00</strong>
+					</div>
+					<div class="raceListTime">
+						<span>剩余:</span>
+						<i></i>
+						<span>小时</span>
+						<i></i>
+						<span>分钟</span>
+						<i></i>
+						<span>秒</span>
+					</div>
+				</li>
+
+
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+
+
+// 优惠推荐下幻灯片的左右滑动
+s=0;
+v=-1200;
+$('.raceListWrap .raceRight').click(function(){
+	s+=v;
+	if(s<=-2400){
+		s=-2400;
+	}
+
+	n=s/v;
+	$('.indexRaceBox .rightNavBox span').removeClass('on')
+	$('.indexRaceBox .rightNavBox span').eq(n).addClass('on');
+
+
+	$('.receBoxs').stop().animate({
+		'left':s+'px'
+	},1000);
+	// $('.receBoxs').css({'left':'-1188px'})
+});
+
+$('.raceListWrap .raceLeft').click(function(){
+	s-=v;
+	if(s>=0){
+		s=0;
+	}
+
+	n=s/v;
+	$('.indexRaceBox .rightNavBox span').removeClass('on')
+	$('.indexRaceBox .rightNavBox span').eq(n).addClass('on');
+
+	$('.receBoxs').stop().animate({
+		'left':s
+	},1000);
+	// $('.receBoxs').css({'left':'-1188px'})
+});
+
+
+
+// 优惠推荐右上角指示灯控制
+
+// 优惠推荐
+
+$('.indexRaceBox .rightNavBox span').click(function(){
+	$('.indexRaceBox .rightNavBox span').removeClass('on')
+	$(this).addClass('on');
+
+	fangidx=$(this).index();
+
+	s=fangidx*v;
+	$('.receBoxs').stop().animate({
+		'left':s+'px'
+	},1000);
+});
+
+
+
+
+
+wrap box list
